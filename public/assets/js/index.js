@@ -1,3 +1,4 @@
+
 let noteForm;
 let noteTitle;
 let noteText;
@@ -51,7 +52,7 @@ const deleteNote = (id) =>
     headers: {
       'Content-Type': 'application/json'
     }
-  });
+  })
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
@@ -127,6 +128,7 @@ const handleRenderBtns = () => {
   }
 };
 
+
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
@@ -191,4 +193,5 @@ if (window.location.pathname === '/notes') {
   noteForm.addEventListener('input', handleRenderBtns);
 }
 
+handleRenderBtns();
 getAndRenderNotes();

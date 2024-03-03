@@ -5,7 +5,9 @@ const {
     readFromFile,
     readAndAppend,
     writeToFile,
-} = require('../helpers/fsUtils');
+} = require('../helpers/utilsfs');
+
+
 
 note.get('/', (req,res) => {
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
@@ -46,10 +48,10 @@ note.post('/', (req, res) => {
             text
         };
 
-        readAndAppend(newNote, ',/db/db.json');
+        readAndAppend(newNote, './db/db.json');
         res.json('Note added successfully');
     } else {
-        res.status(400).send('Errorin adding note');
+        res.status(400).send('Error in adding note');
     }
 });
 

@@ -1,16 +1,17 @@
 const express = require('express');
 const path = require('path');
-const api = require('./public/assets/js/index.js');
 const PORT = process.env.PORT || 3001;
 const app = express();
-
+const noteRouter = require('./routes/db.js');
+const apiRoutes = require('./routes/apiroutes.js')
 // middleware
 
 app.use (express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api', api);
+app.use('/api', apiRoutes);
+app.use('/api/notes', noteRouter);
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
