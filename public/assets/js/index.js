@@ -193,5 +193,5 @@ if (window.location.pathname === '/notes') {
   noteForm.addEventListener('input', handleRenderBtns);
 }
 
-handleRenderBtns();
+// handleRenderBtns();
 getAndRenderNotes();

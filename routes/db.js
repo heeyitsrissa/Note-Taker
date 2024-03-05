@@ -10,7 +10,18 @@ const {
 
 
 note.get('/', (req,res) => {
-    readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)))
+    readFromFile('./db/db.json')
+    .then((data) => {
+        if (!data){
+            return res.json([]);
+        }
+        const jsonData = JSON.parse(data);
+        res.json(jsonData);
+        })
+        .catch((err) => {
+            console.error('Error reading file:', err);
+            res.status(500).send('Internal Server Error');
+        });
 });
 
 note.get('/:note_id', (req, res) => {
@@ -34,7 +45,7 @@ note.delete('/:note_id', (req,res) => {
 
         writeToFile('./db/db.json', result);
 
-        res,json(`Item ${noteId} has been deleted`);
+        res.json(`Item ${noteId} has been deleted`);
     });
 });
 
