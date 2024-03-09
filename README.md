@@ -9,6 +9,8 @@ The part of this project that needed to be installed was the server side javascr
 ## Usage 
 Once the page is opened they are presented with a get started button. Once that button is pushed they are taken to the notes page, where on the left they are presented with past saved notes where they can click on the note and see it opened on the page or they can delete the note by clicking the red trash can icon. To the right on the saved notes list there is an option to add a note title and a note description once the desciption is added a save note button appears to save the note to the list.
 
+Link to deployed site: https://rocky-citadel-01727-733a1801a99f.herokuapp.com/notes
+
 ![alt text](<images/Screenshot 2024-03-07 at 3.12.25 PM.png>)
 
 ![(<Screenshot 2024-03-07 at 3.12.25 PM.png>)](<images/Screenshot 2024-03-07 at 3.12.32 PM.png>)
